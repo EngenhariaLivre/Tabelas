@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={210mm,297mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ bottom=20mm,
+ }
+
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+% Remove espaço das listas
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=*}
+
+% Remove numeração dos títulos: http://tex.stackexchange.com/a/80117/85775
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+% Cabeçalho e rodapés
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
+\lhead{Tabela de derivadas, integrais e identidades trigonométricas}
+\rhead{\href{http://engenharialivre.com}{Engenharia Livre}}
+\lfoot{Curta nossa página no Facebook: \url{http://facebook.com/engenharialivre}\\
+Acesse: \url{http://engenharialivre.com}}
+\rfoot{Última revisão: 11/09/2015}
+
+\title{Tabela de derivadas, integrais e identidades trigonométricas}
+\author{ Douglas Moura }
+\author{}
+
+\begin{document}
+
+  %\maketitle
+
+  \centering
+    Sejam \(u\) e \(v\) funções variáveis de \(z\) e \(n\) constante.
+
+  \justify
+  \begin{multicols}{2}
+
+    \section{Derivadas}
+
+      \begin{enumerate}
+        \item \( y = u^n \Rightarrow y' = n  u^{n-1}  u' \)
+        \item \( y = u  v \Rightarrow y' = u'  v + v'  u \)
+        \item \( y = \frac{u}{v} \Rightarrow y' = \frac{u'  v - v'  u}{v^2} \)
+        \item \( y = a^u \Rightarrow y' = a^u  (\ln a)  u', (a > 0, a \neq 1 ) \)
+        \item \( y = e^u \Rightarrow y' = e^u  u' \)
+        \item \( y = \log_a{u} \Rightarrow y' = \frac{u'}{u}  \log_a  e \)
+        \item \( y = \ln{u} \Rightarrow y' = \frac{1}{u}  u' \)
+        \item \( y = u^v \Rightarrow y' = v  u^{v-1}  u' + u^v (\ln u) v' \)
+        \item \( y = \sin{u} \Rightarrow y' = u' \cos{u} \)
+        \item \( y = \cos{u} \Rightarrow y' = -u' \sin{u} \)
+        \item \( y = \tan{u} \Rightarrow y' = u' \sec^2{u} \)
+        \item \( y = \cot{u} \Rightarrow y' = -u' \csc^2{u} \)
+        \item \( y = \sec{u} \Rightarrow y' = u' \sec{u} \cdot \tan{u} \)
+        \item \( y = \csc{u} \Rightarrow y' = -u' \csc{u} \cdot \cot{u} \)
+        \item \( y = \arcsin{u} \Rightarrow y' = \frac{u'}{\sqrt{1-u^2}} \)
+        \item \( y = \arccos{u} \Rightarrow y' = \frac{-u'}{\sqrt{1-u^2}} \)
+        \item \( y = \arctan{u} \Rightarrow y' = \frac{u'}{\sqrt{1+u^2}} \)
+        \item \( y = \) arccot \( u \Rightarrow y' = \frac{-u'}{\sqrt{1+u^2}} \)
+        \item \( y = \) arcsec \(u, |u| \geq 1 \Rightarrow y' = \frac{u'}{|u|         \sqrt{u^2-1}}, |u| > 1 \)
+        \item \( y = \) arccsc \(u, |u| \geq 1 \Rightarrow y' = \frac{-u'}{|u| \sqrt{u^2-1}}, |u| > 1 \)
+      \end{enumerate}
+
+    \section{Integrais}
+
+      \begin{enumerate}
+        \item \( \int du = u+c \)
+        \item \( \int u^n du = \frac{u^{n+1}}{n+1} + c, n \neq -1 \)
+        \item \( \int \frac{du}{u} = \ln{|u|} + c \)
+        \item \( \int a^u du = \frac{a^u}{\ln{a}} +c, a > 0, a \neq 1 \)
+        \item \( \int e^u du = e^u + c \)
+        \item \( \int \sin{u} \cdot du = -\cos{u} + c \)
+        \item \( \int \cos{u} \cdot du = \sin{u} +c \)
+        \item \( \int \tan{u} \cdot du = \ln{|\sec{u}|} + c \)
+        \item \( \int \cot{u} \cdot du = \ln{|\sin{u}|} + c \)
+        \item \( \int \sec{u} \cdot du  = \ln{|\sec{u} + \tan{u}|} + c \)
+        \item \( \int \csc{u} \cdot du  = \ln{|\csc{u} - \cot{u}|} + c \)
+        \item \( \int \sec{u} \cdot \tan{u} \cdot du  = \sec{u} + c \)
+        \item \( \int \csc{u}\cdot \cot{u} \cdot du = -\csc{u} + c \)
+        \item \( \int \sec^2u \cdot du = \tan{u} + c \)
+        \item \( \int \csc^2{u} \cdot du = -\cot{u} + c \)
+        \item \( \int \frac{du}{u^2+a^2} = \frac{1}{a} \arctan{\frac{u}{a}} + c \)
+        \item \( \int \frac{du}{u^2-a^2} = \frac{1}{2a} \ln{|\frac{u-a}{u+a}|} + c, u^2 > a^2 \)
+        \item \( \int \frac{du}{\sqrt{u^2+a^2}} = \ln{|u + \sqrt{u^2+a^2}|} + c \)
+        \item \( \int \frac{du}{\sqrt{u^2-a^2}} = \arcsin{\frac{u}{a}} + c, u^2 < a^2 \)
+        \item \( \int \frac{du}{\sqrt{a^2-u^2}} = \arcsin{\frac{u}{a}} + c, u^2 < a^2 \)
+        \item \( \int \frac{du}{u \sqrt{a^2-u^2}} = \frac{1}{a} \) arcsec \( |\frac{u}{a}| + c  \)
+      \end{enumerate}
+
+  \end{multicols}
+
+  \begin{multicols*}{2}
+
+    \section{Identidadade trigonométricas}
+
+      \begin{enumerate}
+        \item \( \sin^2{x} + \cos^2{x} = 1  \)
+        \item \( 1 + \tan^2{x} = \sec^2{x}  \)
+        \item \( 1+ \cot^2{x} = \csc^2{x}  \)
+        \item \( \sin^2{x} = \frac{1-\cos{2x}}{2}  \)
+        \item \( \cos^2{x} = \frac{1+\cos{2x}}{2}  \)
+        \item \( \sin{2x} = 2 \sin{x} \cdot \cos{x}  \)
+        \item \( 2 \sin{x} \cdot \cos{y} = \sin(x - y) + \sin(x + y)   \)
+        \item \( 2 \sin{x} \cdot \sin{y} = \cos(x - y) - \cos(x + y)   \)
+        \item \( \cos{x} \cdot \cos{y} = \cos(x - y) + \cos(x + 1)  \)
+        \item \( 1 \pm \sin{x} = 1 \pm \cos(\frac{\pi}{2} - x)  \)
+      \end{enumerate}
+
+    \section{Fórmulas de recorrência}
+
+      \begin{enumerate}
+        \item \( \int \sin^n au \cdot du = -\frac{\sin^{n-1}au \cdot \cos{au}}{an} + (\frac{n-1}{n}) \cdot \int \sin^{n-2} au \cdot du \)
+        \item \( \int \cos^n au \cdot du = \frac{ \sin{au} \cos^{n-1} au}{an} + \frac{n-1}{b} \cdot \int \cos^{n-2} au \cdot du \)
+        \item \( \int \tan^n au \cdot du = \frac{ \tan^{n-1}{au} }{a(n-1)} - \int \tan^{n-2} au \cdot du \)
+        \item \( \int \cot^n au \cdot du = -\frac{ \cot^{n-1}{au} }{a(n-1)} - \int \cot^{n-2} au \cdot du \)
+        \item \( \int \sec^n au \cdot du = \frac{ \sec^{n-2}{au} \tan{au} }{a(n-1)} + \frac{n-2}{n-1} \int \sec^{n-2}  au \cdot du\)
+        \item \( \int \csc^n au \cdot du = -\frac{ \csc^{n-2}{au} \cot{au}}{a(n-1)} + \frac{n-2}{n-1} \int \csc^{n-2} au \cdot du \)
+      \end{enumerate}
+
+  \end{multicols*}
+
+\end{document}
